@@ -7,8 +7,7 @@ import QtQuick.Controls.Basic
 
 Column {
     id: control
-
-    
+  
     property color mainColor: "gray"
     property alias text: textItem.text
     property alias value: slider.value
@@ -18,18 +17,18 @@ Column {
 
     signal moved
 
-    spacing: -10 * dp
+    spacing: 0
 
     Text {
         id: textItem
         anchors.horizontalCenter: parent.horizontalCenter
         color: "#e0e0e0"
-        font.pixelSize: 16 * dp
+        font.pixelSize: 14
     }
 
     Slider {
         id: slider
-        property real sliderWidth: settings.settingsViewWidth
+        property real sliderWidth: settings.settingsViewWidth // @todo
         property real handlePadding: (handleItem.width - handleVisualItem.width) * 0.5
         width: sliderWidth
         value: 50
@@ -78,11 +77,11 @@ Column {
                 color: Qt.lighter(control.mainColor, 1.5)
                 RectangularShadow {
                     anchors.fill: parent
-                    anchors.margins: -2
-                    z: -1
+                    anchors.margins: -2                    
                     radius: width / 2
                     blur: slider.hovered || slider.pressed ? 16 : 8
                     color: Qt.lighter(control.mainColor, 1.2)
+                    z: -1
                 }
             }
         }

@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Effects
 
+// @todo: Add a window
 Rectangle {
 	id: mainCanvas
 
