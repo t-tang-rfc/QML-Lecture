@@ -15,12 +15,22 @@ Window {
 		color: "#27376C"
 		anchors.fill: parent
 
+		// Animate background color changes
+		Behavior on color {
+			ColorAnimation { duration: 400 }
+		}
+
 		Text {
 			id: greetingText
 			text: "Hello, RIVERFIELD!"
 			font.pixelSize: 64
 			color: "#FFFFFF"
 			anchors.centerIn: parent // layout using anchors
+
+			// Animate foreground (text) color changes
+			Behavior on color {
+				ColorAnimation { duration: 400 } // unit in milliseconds
+			}
 		}
 
 		Grid {
