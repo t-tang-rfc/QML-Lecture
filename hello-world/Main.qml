@@ -3,19 +3,22 @@
 import QtQuick
 
 Window {
+	id: mainWindow // id *attribute* is used to reference this object in this QML file
 	visible: true
-	width: 400
-	height: 200
-	title: "Hello World QML"
+	width: 800
+	height: 600
+	title: "QML hello-world Example"
 
 	Rectangle {
+		id: mainCanvas
+		color: "#27376C"
 		anchors.fill: parent
-		color: "#f4f4f9"
 		Text {
-			text: "Hello, World!"
-			anchors.centerIn: parent
-			font.pixelSize: 32
-			color: "#232946"
+			id: greetingText
+			text: "Hello, RIVERFIELD!"
+			font.pixelSize: 64
+			color: "#FFFFFF"
+			anchors.centerIn: parent // layout using anchors
 		}
 	}
 }
