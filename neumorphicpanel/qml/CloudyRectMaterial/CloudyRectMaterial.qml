@@ -12,7 +12,7 @@ Item {
     // When timeRunning is false, this can be used to control iTime manually
     property real animatedTime: frameAnimation.elapsedTime
 
-    // The levels of details for the electic clouds. Bigger value means more detailed rending which also requires more processing power. The default value is 6 and practical range is between 1 and 10.
+    // The levels of details for the electric clouds. Bigger value means more detailed rendering which also requires more processing power. The default value is 6 and practical range is between 1 and 10.
     property int electricCloudLevels: 4
     // The color used for the clouds. Alpha channel defines the amount of opacity this effect has.
     property color electricCloudColor: Qt.rgba(1, 1, 1, 0.6)

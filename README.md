@@ -12,6 +12,7 @@ The example `hello-world` is a simple pure QML application that demonstrates how
 The `neumorphic-panel` example showcases creating shadow effects in QML.
 It is adopted from an official Qt example [3].
 Note, the feature `RectangularShadow` is introduced in Qt 6.9, so ensure you have the correct version of Qt to build this example.
+It also requires the Qt Quick Controls 2 module (see https://doc.qt.io/qt-6/qtquickcontrols-index.html)
 
 ## References
 

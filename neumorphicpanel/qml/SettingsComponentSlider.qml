@@ -45,18 +45,18 @@ Column {
             width: slider.availableWidth - slider.handlePadding * 2
             height: implicitHeight
             radius: 2
-            color: Qt.lighter(mainWindow.mainColor, 0.3)
+            color: Qt.lighter(mainCanvas.mainColor, 0.3)
             Rectangle {
                 width: slider.visualPosition * parent.width
                 height: parent.height
-                color: mainWindow.mainColor
+                color: mainCanvas.mainColor
                 radius: 2
                 RectangularShadow {
                     anchors.fill: parent
                     z: -1
                     radius: height / 2
                     blur: slider.hovered || slider.pressed ? 12 : 8
-                    color: Qt.lighter(mainWindow.mainColor, 1.2)
+                    color: Qt.lighter(mainCanvas.mainColor, 1.2)
                 }
             }
         }
@@ -73,14 +73,14 @@ Column {
                 width: 8
                 height: 8
                 radius: width / 2
-                color: Qt.lighter(mainWindow.mainColor, 1.5)
+                color: Qt.lighter(mainCanvas.mainColor, 1.5)
                 RectangularShadow {
                     anchors.fill: parent
                     anchors.margins: -2
                     z: -1
                     radius: width / 2
                     blur: slider.hovered || slider.pressed ? 16 : 8
-                    color: Qt.lighter(mainWindow.mainColor, 1.2)
+                    color: Qt.lighter(mainCanvas.mainColor, 1.2)
                 }
             }
         }

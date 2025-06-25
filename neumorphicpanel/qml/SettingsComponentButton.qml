@@ -31,16 +31,16 @@ Button {
         implicitHeight: 40
         opacity: enabled ? 1 : 0.3
         radius: height * 0.5
-        color: Qt.lighter(mainWindow.mainColor, 0.3)
+        color: Qt.lighter(mainCanvas.mainColor, 0.3)
         border.width: 1
-        border.color: Qt.lighter(mainWindow.mainColor, 0.1)
+        border.color: Qt.lighter(mainCanvas.mainColor, 0.1)
         RectangularShadow {
             // Inner shadow
             anchors.fill: parent
             anchors.margins: blur
             radius: height * 0.4
             blur: height * 0.4
-            color: Qt.lighter(mainWindow.mainColor, 0.4 + animatedPressed * 0.2 + animatedChecked * 0.6)
+            color: Qt.lighter(mainCanvas.mainColor, 0.4 + animatedPressed * 0.2 + animatedChecked * 0.6)
         }
         RectangularShadow {
             // Glow
@@ -49,7 +49,7 @@ Button {
             radius: height * 0.4
             blur: 60
             opacity: 0.1 + animatedPressed * 0.4
-            color: Qt.lighter(mainWindow.mainColor, 1.2)
+            color: Qt.lighter(mainCanvas.mainColor, 1.2)
         }
     }
 }

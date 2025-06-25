@@ -7,7 +7,7 @@ import QtQuick.Effects
 import "CloudyRectMaterial"
 
 Rectangle {
-    id: mainWindow
+    id: mainCanvas
 
     // Multiplier for resolution independency
     readonly property real dp: 0.2 + Math.min(width, height) / 1200
@@ -26,8 +26,8 @@ Rectangle {
         id: defaultSettings
     }
 
-    // Animate the mainColor
-    SequentialAnimation on mainColor {
+    // Animate the background color
+    SequentialAnimation on color {
         loops: Animation.Infinite
         ColorAnimation {
             to: "#60c0d0"
@@ -50,15 +50,23 @@ Rectangle {
     CloudyRectMaterial {
         id: cloudyRectMaterialLight
         timeRunning: true
-        electricCloudColor: Qt.lighter(mainColor, 1.4)
+        electricCloudColor: Qt.lighter(mainCanvas.mainColor, 1.4)
         visible: settings.showCustomMaterial
     }
     CloudyRectMaterial {
         id: cloudyRectMaterialDark
         timeRunning: true
-        electricCloudColor: Qt.lighter(mainColor, 0.6)
+        electricCloudColor: Qt.lighter(mainCanvas.mainColor, 0.6)
         visible: settings.showCustomMaterial
     }
+
+    SettingsView {
+        id: settingsView
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.margins: 20
+        visible: settings.showSettingsView
+    }    
 
     Item {
         id: mainArea
@@ -77,11 +85,11 @@ Rectangle {
                 property real lightLevelUp: 1.05 - settings.offsetY * 0.004 * settings.opacity
                 property real lightLevelDown: 1.05 + settings.offsetY * 0.004 * settings.opacity
                 GradientStop {
-                    color: Qt.lighter(mainColor, gradient.lightLevelUp)
+                    color: Qt.lighter(mainCanvas.mainColor, gradient.lightLevelUp)
                     position: 0
                 }
                 GradientStop {
-                    color: Qt.lighter(mainColor, gradient.lightLevelDown)
+                    color: Qt.lighter(mainCanvas.mainColor, gradient.lightLevelDown)
                     position: 1
                 }
             }
@@ -141,13 +149,5 @@ Rectangle {
                 visible: settings.showDebug
             }
         }
-    }
-
-    SettingsView {
-        id: settingsView
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.margins: 20
-        visible: settings.showSettingsView
     }
 }

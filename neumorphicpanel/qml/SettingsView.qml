@@ -57,7 +57,7 @@ Item {
         anchors.topMargin: -10
         Rectangle {
             anchors.fill: parent
-            color: Qt.lighter(mainWindow.mainColor, 0.8)
+            color: Qt.lighter(mainCanvas.mainColor, 0.8)
             radius: 4
         }
         Image {
@@ -80,7 +80,7 @@ Item {
         opacity: showAnimation ? 1 : 0
         visible: opacity
         anchors.margins: -10
-        color: Qt.lighter(mainWindow.mainColor, 0.15)
+        color: Qt.lighter(mainCanvas.mainColor, 0.15)
         radius: 4
     }
 
@@ -162,7 +162,7 @@ Item {
                 width: settings.settingsViewWidth * 0.6
                 height: width
                 radius: 5
-                color: Qt.lighter(mainWindow.mainColor, 0.5)
+                color: Qt.lighter(mainCanvas.mainColor, 0.5)
                 border.width: 1
                 border.color: "#e0e0e0"
                 Item {
