@@ -9,6 +9,7 @@ Item {
     id: rootItem
 
     property bool show: true
+    property color mainColor: "gray"
     property real showAnimation: show ? 1 : 0
 
     width: settings.settingsViewWidth

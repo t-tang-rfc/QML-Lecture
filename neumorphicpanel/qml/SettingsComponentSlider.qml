@@ -6,8 +6,10 @@ import QtQuick.Effects
 import QtQuick.Controls.Basic
 
 Column {
-    id: rootItem
+    id: control
 
+    
+    property color mainColor: "gray"
     property alias text: textItem.text
     property alias value: slider.value
     property alias from: slider.from
@@ -34,7 +36,7 @@ Column {
         from: 0
         to: 800
         onMoved: {
-            rootItem.moved();
+            control.moved();
         }
 
         background: Rectangle {
@@ -45,18 +47,18 @@ Column {
             width: slider.availableWidth - slider.handlePadding * 2
             height: implicitHeight
             radius: 2
-            color: Qt.lighter(mainCanvas.mainColor, 0.3)
+            color: Qt.lighter(control.mainColor, 0.3)
             Rectangle {
                 width: slider.visualPosition * parent.width
                 height: parent.height
-                color: mainCanvas.mainColor
+                color: control.mainColor
                 radius: 2
                 RectangularShadow {
                     anchors.fill: parent
                     z: -1
                     radius: height / 2
                     blur: slider.hovered || slider.pressed ? 12 : 8
-                    color: Qt.lighter(mainCanvas.mainColor, 1.2)
+                    color: Qt.lighter(control.mainColor, 1.2)
                 }
             }
         }
@@ -73,14 +75,14 @@ Column {
                 width: 8
                 height: 8
                 radius: width / 2
-                color: Qt.lighter(mainCanvas.mainColor, 1.5)
+                color: Qt.lighter(control.mainColor, 1.5)
                 RectangularShadow {
                     anchors.fill: parent
                     anchors.margins: -2
                     z: -1
                     radius: width / 2
                     blur: slider.hovered || slider.pressed ? 16 : 8
-                    color: Qt.lighter(mainCanvas.mainColor, 1.2)
+                    color: Qt.lighter(control.mainColor, 1.2)
                 }
             }
         }
