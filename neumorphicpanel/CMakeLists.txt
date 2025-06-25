@@ -1,6 +1,8 @@
 # Copyright (C) 2024 The Qt Company Ltd.
 # SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
-# @note: This program requires Qt 6.9 to build.
+# @note: 
+# - This program requires Qt 6.9 to build.
+# - It also requires the Qt Quick Controls 2 module (@see https://doc.qt.io/qt-6/qtquickcontrols-index.html)
 
 cmake_minimum_required(VERSION 3.16)
 project(neumorphicpanel LANGUAGES CXX)
