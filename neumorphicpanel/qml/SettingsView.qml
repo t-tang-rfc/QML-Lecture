@@ -205,28 +205,21 @@ Item {
     }
     Row {
         anchors.horizontalCenter: scrollView.horizontalCenter
-        anchors.bottom: resetButton.top
+        anchors.bottom: scrollView.bottom
         anchors.bottomMargin: 20 * dp
         spacing: 20 * dp
         SettingsComponentButton {
+            id: debugButton
             text: "DEBUG"
             checkable: true
             checked: settings.showDebug
             onCheckedChanged: settings.showDebug = checked
         }
         SettingsComponentButton {
-            text: "CUSTOM"
+            id: resetButton
+            text: "RESET"
             checkable: true
-            checked: settings.showCustomMaterial
-            onCheckedChanged: settings.showCustomMaterial = checked
+            onClicked: settings.resetSettings()
         }
-    }
-    SettingsComponentButton {
-        id: resetButton
-        anchors.horizontalCenter: scrollView.horizontalCenter
-        anchors.bottom: scrollView.bottom
-        anchors.bottomMargin: 20 * dp
-        text: "RESET"
-        onClicked: settings.resetSettings()
     }
 }

@@ -20,7 +20,7 @@ Button {
     contentItem: Text {
         text: control.text
         font: control.font
-        opacity: enabled ? 0.7 + 0.3 * animatedPressed + animatedChecked * 0.3 : 0.3
+        opacity: enabled ? 0.7 + 0.3 * control.animatedPressed + control.animatedChecked * 0.3 : 0.3
         color: "#ffffff"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -40,7 +40,7 @@ Button {
             anchors.margins: blur
             radius: height * 0.4
             blur: height * 0.4
-            color: Qt.lighter(mainCanvas.mainColor, 0.4 + animatedPressed * 0.2 + animatedChecked * 0.6)
+            color: Qt.lighter(mainCanvas.mainColor, 0.4 + control.animatedPressed * 0.2 + control.animatedChecked * 0.6)
         }
         RectangularShadow {
             // Glow
@@ -48,7 +48,7 @@ Button {
             z: -1
             radius: height * 0.4
             blur: 60
-            opacity: 0.1 + animatedPressed * 0.4
+            opacity: 0.1 + control.animatedPressed * 0.4
             color: Qt.lighter(mainCanvas.mainColor, 1.2)
         }
     }
