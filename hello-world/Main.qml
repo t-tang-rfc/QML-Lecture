@@ -1,4 +1,5 @@
 // @brief: A Simple QML Hello World Example
+// @see: [The official Qt tutorial](https://doc.qt.io/qt-6/qml-tutorial1.html)
 
 import QtQuick
 
@@ -13,12 +14,49 @@ Window {
 		id: mainCanvas
 		color: "#27376C"
 		anchors.fill: parent
+
 		Text {
 			id: greetingText
 			text: "Hello, RIVERFIELD!"
 			font.pixelSize: 64
 			color: "#FFFFFF"
 			anchors.centerIn: parent // layout using anchors
+		}
+
+		Grid {
+			// @brief: A color picker, first row for for the foreground color, second row for the background color.
+			id: colorPicker
+			rows: 2; columns: 3; rowSpacing: 10; columnSpacing: 6
+			anchors.left: parent.left
+			anchors.leftMargin: 8
+			anchors.bottom: parent.bottom
+			anchors.bottomMargin: 8
+
+			// @note: The constructions go row first.
+			Cell {
+				cellColor: "#FFFFFF"
+				onClicked: function(color) { greetingText.color = color } // @note: this is a JavaScript function!
+			}
+			Cell {
+				cellColor: "#838787"
+				onClicked: function(color) { greetingText.color = color }
+			}
+			Cell {
+				cellColor: "#34A5DA"
+				onClicked: function(color) { greetingText.color = color }
+			}
+			Cell {
+				cellColor: "#27376C"
+				onClicked: function(color) { mainCanvas.color = color }
+			}
+			Cell {
+				cellColor: "#212121"
+				onClicked: function(color) { mainCanvas.color = color }
+			}
+			Cell {
+				cellColor: "#FFFFFF"
+				onClicked: function(color) { mainCanvas.color = color }
+			}
 		}
 	}
 }
