@@ -69,4 +69,10 @@ Window {
 			}
 		}
 	}
+
+	// Make the window display in the center of the screen
+	Component.onCompleted: {
+		x = (Screen.width - width) / 2
+		y = (Screen.height - height) / 2
+	}
 }
