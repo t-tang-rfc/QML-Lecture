@@ -4,7 +4,6 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Effects
-import "CloudyRectMaterial"
 
 Rectangle {
     id: mainCanvas
@@ -45,19 +44,6 @@ Rectangle {
             to: "#b0b0b0"
             duration: 8000
         }
-    }
-
-    CloudyRectMaterial {
-        id: cloudyRectMaterialLight
-        timeRunning: true
-        electricCloudColor: Qt.lighter(mainCanvas.mainColor, 1.4)
-        visible: settings.showCustomMaterial
-    }
-    CloudyRectMaterial {
-        id: cloudyRectMaterialDark
-        timeRunning: true
-        electricCloudColor: Qt.lighter(mainCanvas.mainColor, 0.6)
-        visible: settings.showCustomMaterial
     }
 
     SettingsView {
@@ -110,9 +96,9 @@ Rectangle {
             blur: settings.blur
             spread: settings.spread
             opacity: settings.opacity
-            color: Qt.lighter(mainColor, 1.3)
+            color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
             z: -1
-            material: settings.showCustomMaterial ? cloudyRectMaterialLight : null
+            material: null
             Rectangle {
                 z: 1
                 x: parent.material.x - 1
@@ -134,9 +120,9 @@ Rectangle {
             blur: settings.blur
             spread: settings.spread
             opacity: settings.opacity
-            color: Qt.lighter(mainColor, 0.7)
+            color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
             z: -2
-            material: settings.showCustomMaterial ? cloudyRectMaterialDark : null
+            material: null // Use the default material
             Rectangle {
                 z: 1
                 x: parent.material.x - 1
