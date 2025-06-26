@@ -102,13 +102,14 @@ Item {
 				sliderWidth: rootItem.sliderWidth
 				from: 100
 				to: 300
-				value: settings.itemSize				
+				value: settings.objectSize				
 				onMoved: {
-					settings.itemSize = value
-					settings.radius = Math.min(settings.radius, radiusSlider.to)
-					settings.spread = Math.min(settings.spread, spreadSlider.to)
-					settings.spread = Math.max(settings.spread, spreadSlider.from)
-					settings.blur = value * 0.2
+					settings.objectSize = value
+					settings.objectRadius = Math.min(settings.objectRadius, radiusSlider.to)
+					settings.objectRadius = Math.max(settings.objectRadius, radiusSlider.from)
+					settings.objectSpread = Math.min(settings.objectSpread, spreadSlider.to)
+					settings.objectSpread = Math.max(settings.objectSpread, spreadSlider.from)
+					settings.objectBlur = value * 0.2
 					resetPosition();
 				}				
 			}
@@ -117,10 +118,10 @@ Item {
 				text: qsTr("Radius") + ": " + value.toFixed()
 				sliderWidth: rootItem.sliderWidth
 				from: 0
-				to: settings.itemSize * 0.5
-				value: settings.radius				
+				to: settings.objectSize * 0.5
+				value: settings.objectRadius				
 				onMoved: {
-					settings.radius = value
+					settings.objectRadius = value
 				}
 			}
 			SettingsComponentSlider {
@@ -128,9 +129,9 @@ Item {
 				sliderWidth: rootItem.sliderWidth
 				from: 0
 				to: 100
-				value: settings.blur				
+				value: settings.objectBlur				
 				onMoved: {
-					settings.blur = value;
+					settings.objectBlur = value;
 				}
 			}
 			SettingsComponentSlider {
@@ -147,11 +148,11 @@ Item {
 				id: spreadSlider
 				sliderWidth: rootItem.sliderWidth
 				text: qsTr("Spread") + ": " + value.toFixed(2)				
-				from: -settings.itemSize * 0.1
-				to: settings.itemSize * 0.1
-				value: settings.spread
+				from: -settings.objectSize * 0.1
+				to: settings.objectSize * 0.1
+				value: settings.objectSpread
 				onMoved: {
-					settings.spread = value;
+					settings.objectSpread = value;
 				}
 			}
 

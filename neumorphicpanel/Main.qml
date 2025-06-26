@@ -67,9 +67,9 @@ Rectangle {
 		Rectangle {
 			id: sourceItem
 			anchors.centerIn: parent
-			width: settings.itemSize * 2
-			height: settings.itemSize
-			radius: settings.radius
+			height: settings.objectSize
+			width: height * 2
+			radius: settings.objectRadius
 			gradient: Gradient {
 				id: gradient
 				property real lightLevelUp: 1.05 - settings.offsetY * 0.004 * settings.objectOpacity
@@ -96,11 +96,11 @@ Rectangle {
 			anchors.fill: sourceItem
 			offset.x: settings.offsetX
 			offset.y: settings.offsetY
-			radius: settings.radius
+			radius: settings.objectRadius
 			color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
 			opacity: settings.objectOpacity
-			spread: settings.spread			
-			blur: settings.blur
+			spread: settings.objectSpread			
+			blur: settings.objectBlur
 			z: -1
 			material: null
 			Rectangle {
@@ -120,11 +120,11 @@ Rectangle {
 			anchors.fill: sourceItem
 			offset.x: -settings.offsetX
 			offset.y: -settings.offsetY
-			radius: settings.radius
+			radius: settings.objectRadius
 			color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
 			opacity: settings.objectOpacity
-			spread: settings.spread
-			blur: settings.blur
+			spread: settings.objectSpread
+			blur: settings.objectBlur
 			z: -2
 			material: null // Use the default material
 			Rectangle {
