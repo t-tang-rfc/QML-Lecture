@@ -219,7 +219,6 @@ Item {
 		SettingsComponentButton {
 			id: resetButton
 			text: "RESET"
-			checkable: true
 			onClicked: settings.resetSettings()
 		}
 	}
