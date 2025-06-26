@@ -18,14 +18,6 @@ Rectangle {
 	height: 720
 	color: mainColor
 
-	Settings {
-		id: settings
-	}
-
-	Settings {
-		id: defaultSettings
-	}
-
 	// Animate the background color
 	SequentialAnimation on color {
 		loops: Animation.Infinite
@@ -45,8 +37,17 @@ Rectangle {
 			to: "#b0b0b0"
 			duration: 8000
 		}
+	}	
+
+	Settings {
+		id: settings
 	}
 
+	Settings {
+		id: defaultSettings
+	}
+
+	// Primary (left) Side Bar
 	SettingsView {
 		id: settingsView
 		anchors.top: parent.top
