@@ -6,8 +6,6 @@ import QtQuick
 QtObject {
     id: rootItem
 
-    property bool showSettingsView: true
-
     property real itemSize: 200
     property real blur: 40
     property real radius: 40

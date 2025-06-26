@@ -91,6 +91,7 @@ Item {
 		ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 		ScrollBar.vertical.interactive: false
 		clip: true
+
 		Column {
 			id: settingsArea
 			anchors.fill: parent
