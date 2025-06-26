@@ -1,4 +1,6 @@
-// @brief: A Neu-morphic Style Button
+/**
+ * @brief: A Neu-morphic Style Button
+ */
 
 import QtQuick
 import QtQuick.Controls.Basic

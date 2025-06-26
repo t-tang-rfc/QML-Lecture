@@ -11,9 +11,6 @@ import QtQuick.Effects
 Rectangle {
 	id: mainCanvas
 
-	// Multiplier for resolution independency
-	readonly property real dp: 0.8 // 0.2 + Math.min(width, height) / 1200
-	// Color used everywhere in the example
 	property color mainColor: "#b0b0b0"
 
 	width: 1280
@@ -39,15 +36,11 @@ Rectangle {
 			to: "#b0b0b0"
 			duration: 8000
 		}
-	}	
-
-	Settings {
-		id: settings
 	}
 
 	/// Primary (left) Side Bar
-	SettingsView {
-		id: settingsView
+	SettingPanel {
+		id: settings
 		visible: true
 		width: 270
 		anchors.top: parent.top
@@ -60,7 +53,7 @@ Rectangle {
 	/// Main Canvas Area
 	Item {
 		id: mainArea
-		anchors.left: settingsView.right
+		anchors.left: settings.right
 		anchors.right: parent.right
 		anchors.top: parent.top
 		anchors.bottom: parent.bottom

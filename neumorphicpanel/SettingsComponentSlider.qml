@@ -1,4 +1,6 @@
-// @brief: A Neu-morphic Style Slider
+/**
+ * @brief: A Neu-morphic Style Slider
+ */
 
 import QtQuick
 import QtQuick.Controls.Basic
@@ -15,9 +17,9 @@ Column {
 	property alias to: slider.to
 	property alias value: slider.value
 
-	signal moved
-
 	spacing: 0
+
+	signal moved
 
 	Text {
 		id: textItem
@@ -36,6 +38,30 @@ Column {
 		value: 50
 		onMoved: {
 			control.moved();
+		}
+
+		handle: Item {
+			id: handleItem
+			x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
+			y: slider.topPadding + slider.availableHeight / 2 - height / 2
+			implicitWidth: 26
+			implicitHeight: 26
+			Rectangle {
+				id: handleVisualItem
+				anchors.centerIn: parent
+				width: 8
+				height: 8
+				radius: width / 2
+				color: Qt.lighter(control.mainColor, 1.5)
+				RectangularShadow {
+					anchors.fill: handleVisualItem
+					anchors.margins: -2                    
+					radius: width / 2
+					color: Qt.lighter(control.mainColor, 1.2)
+					blur: slider.hovered || slider.pressed ? 16 : 8
+					z: -1
+				}
+			}
 		}
 
 		background: Rectangle {
@@ -59,30 +85,6 @@ Column {
 					radius: height / 2
 					color: Qt.lighter(control.mainColor, 1.2)					
 					blur: slider.hovered || slider.pressed ? 12 : 8
-					z: -1
-				}
-			}
-		}
-
-		handle: Item {
-			id: handleItem
-			x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
-			y: slider.topPadding + slider.availableHeight / 2 - height / 2
-			implicitWidth: 26
-			implicitHeight: 26
-			Rectangle {
-				id: handleVisualItem
-				anchors.centerIn: parent
-				width: 8
-				height: 8
-				radius: width / 2
-				color: Qt.lighter(control.mainColor, 1.5)
-				RectangularShadow {
-					anchors.fill: handleVisualItem
-					anchors.margins: -2                    
-					radius: width / 2
-					color: Qt.lighter(control.mainColor, 1.2)
-					blur: slider.hovered || slider.pressed ? 16 : 8
 					z: -1
 				}
 			}
