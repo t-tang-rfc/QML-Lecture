@@ -9,7 +9,6 @@ QtObject {
     property bool showSettingsView: true
     property real settingsViewWidth: 150 + 150 * dp
     property bool showDebug: false
-    property bool showCustomMaterial: false
 
     property real itemSize: 200
     property real blur: 40
@@ -28,7 +27,6 @@ QtObject {
         settings.offsetY = defaultSettings.offsetY;
         settings.opacity = defaultSettings.opacity;
         settings.showDebug = defaultSettings.showDebug;
-        settings.showCustomMaterial = defaultSettings.showCustomMaterial;
         settingsView.resetPosition();
     }
 }
