@@ -179,19 +179,20 @@ Item {
 				Item {
 					id: lightItem
 					Rectangle {
+						id: lightBackground
 						anchors.centerIn: parent
 						width: 10
 						height: width
 						radius: width / 2
 						color: "#e0e0e0"
 						RectangularShadow {
-							anchors.centerIn: parent
+							anchors.centerIn: lightBackground
 							width: parent.width * 3.0
 							height: width
 							radius: width / 2
-							blur: width
 							color: "#fff9f0"
 							opacity: settings.objectOpacity
+							blur: width
 						}
 					}
 				}

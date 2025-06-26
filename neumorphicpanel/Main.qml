@@ -96,18 +96,18 @@ Rectangle {
 			offset.x: settings.offsetX
 			offset.y: settings.offsetY
 			radius: settings.radius
-			blur: settings.blur
-			spread: settings.spread
-			opacity: settings.objectOpacity
 			color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
+			opacity: settings.objectOpacity
+			spread: settings.spread			
+			blur: settings.blur
 			z: -1
 			material: null
 			Rectangle {
 				z: 1
-				x: parent.material.x - 1
-				y: parent.material.y - 1
-				width: parent.material.width + 2
-				height: parent.material.height + 2
+				x: parent.x - 1
+				y: parent.y - 1
+				width: parent.width + 2
+				height: parent.height + 2
 				color: "transparent"
 				border.width: 1
 				border.color: "#ffffff"
@@ -120,10 +120,10 @@ Rectangle {
 			offset.x: -settings.offsetX
 			offset.y: -settings.offsetY
 			radius: settings.radius
-			blur: settings.blur
-			spread: settings.spread
-			opacity: settings.objectOpacity
 			color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
+			opacity: settings.objectOpacity
+			spread: settings.spread
+			blur: settings.blur
 			z: -2
 			material: null // Use the default material
 			Rectangle {
