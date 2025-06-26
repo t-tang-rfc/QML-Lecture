@@ -98,10 +98,10 @@ Rectangle {
 			material: null
 			Rectangle {
 				z: 1
-				x: parent.x - 1
-				y: parent.y - 1
-				width: parent.width + 2
-				height: parent.height + 2
+				x: parent.material.x - 1
+				y: parent.material.y - 1
+				width: parent.material.width + 2
+				height: parent.material.height + 2
 				color: "transparent"
 				border.width: 1
 				border.color: "#ffffff"
