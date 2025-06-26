@@ -53,7 +53,7 @@ Rectangle {
 		anchors.bottom: parent.bottom
 		anchors.margins: 20
 		visible: settings.showSettingsView
-	}    
+	}
 
 	Item {
 		id: mainArea

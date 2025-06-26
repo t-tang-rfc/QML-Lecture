@@ -10,7 +10,7 @@ Item {
 
 	property bool show: true
 	property color mainColor: "gray"
-	property int sliderWidth: 270
+	property real sliderWidth: 270
 	property real showAnimation: show ? 1 : 0
 
 	width: 270 // default, can be overridden
@@ -51,15 +51,15 @@ Item {
 
 	// Open/close button
 	Item {
-		width: 30 * dp
-		height: 30 * dp
+		width: 24
+		height: 24
 		anchors.left: parent.right
 		anchors.leftMargin: 20
 		anchors.top: parent.top
 		anchors.topMargin: -10
 		Rectangle {
 			anchors.fill: parent
-			color: Qt.lighter(mainCanvas.mainColor, 0.8)
+			color: Qt.lighter(rootItem.mainColor, 0.8)
 			radius: 4
 		}
 		Image {
@@ -69,7 +69,7 @@ Item {
 		}
 		MouseArea {
 			anchors.fill: parent
-			anchors.margins: -30 * dp
+			anchors.margins: -24
 			onClicked: {
 				rootItem.show = !rootItem.show;
 			}
@@ -82,7 +82,7 @@ Item {
 		opacity: showAnimation ? 1 : 0
 		visible: opacity
 		anchors.margins: -10
-		color: Qt.lighter(mainCanvas.mainColor, 0.15)
+		color: Qt.lighter(rootItem.mainColor, 0.15)
 		radius: 4
 	}
 
@@ -97,7 +97,7 @@ Item {
 			anchors.fill: parent
 			opacity: showAnimation
 			visible: opacity
-			spacing: 10 * dp
+			spacing: 8
 
 			/// An array of sliders
 			SettingsComponentSlider {
@@ -163,7 +163,7 @@ Item {
 			Text {
 				anchors.horizontalCenter: parent.horizontalCenter
 				color: "#e0e0e0"
-				font.pixelSize: 16 * dp
+				font.pixelSize: 14
 				text: "Offset (" + settings.offsetX.toFixed(0) + ", " +
 					  settings.offsetY.toFixed(0) + ")"
 			}
@@ -173,7 +173,7 @@ Item {
 				width: rootItem.width * 0.6
 				height: width
 				radius: 5
-				color: Qt.lighter(mainCanvas.mainColor, 0.5)
+				color: Qt.lighter(rootItem.mainColor, 0.5)
 				border.width: 1
 				border.color: "#e0e0e0"
 				Item {
@@ -217,8 +217,8 @@ Item {
 	Row {
 		anchors.horizontalCenter: scrollView.horizontalCenter
 		anchors.bottom: scrollView.bottom
-		anchors.bottomMargin: 20 * dp
-		spacing: 20 * dp
+		anchors.bottomMargin: 16
+		spacing: 16
 		SettingsComponentButton {
 			id: debugButton
 			text: "DEBUG"

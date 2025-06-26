@@ -8,7 +8,7 @@ import QtQuick.Controls.Basic
 Column {
 	id: control
   
-	required property int sliderWidth
+	required property real sliderWidth
 	property color mainColor: "gray"
 
 	property alias text: textItem.text	
