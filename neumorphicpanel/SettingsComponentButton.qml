@@ -12,23 +12,6 @@ Button {
 	property real animatedPressed: control.down ? 1.0 : 0.0
 	property real animatedChecked: control.checked ? 1.0 : 0.0
 
-	Behavior on animatedPressed {
-		NumberAnimation {
-			duration: 200
-			easing.type: Easing.InOutQuad
-		}
-	}
-
-	height: 40
-	contentItem: Text {
-		text: control.text
-		font: control.font
-		opacity: enabled ? 0.7 + 0.3 * control.animatedPressed + control.animatedChecked * 0.3 : 0.3
-		color: "#ffffff"
-		horizontalAlignment: Text.AlignHCenter
-		verticalAlignment: Text.AlignVCenter
-		elide: Text.ElideRight
-	}
 	background: Rectangle {
 		implicitWidth: 100
 		implicitHeight: 40
@@ -54,5 +37,22 @@ Button {
 		// 	opacity: 0.1 + control.animatedPressed * 0.4
 		// 	color: Qt.lighter(control.mainColor, 1.2)
 		// }
+	}
+
+	contentItem: Text {
+		text: control.text // passed in from parent of Button
+		font: control.font
+		opacity: enabled ? 0.7 + 0.3 * control.animatedPressed + control.animatedChecked * 0.3 : 0.3
+		color: "#ffffff"
+		horizontalAlignment: Text.AlignHCenter
+		verticalAlignment: Text.AlignVCenter
+		elide: Text.ElideRight // truncate text and add ellipsis if it doesn't fit
+	}
+
+	Behavior on animatedPressed {
+		NumberAnimation {
+			duration: 200
+			easing.type: Easing.InOutQuad
+		}
 	}
 }
