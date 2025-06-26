@@ -18,6 +18,18 @@ It is adopted from an official Qt example [3].
 Note, the feature `RectangularShadow` is introduced in Qt 6.9, so ensure you have the correct version of Qt to build this example.
 It also requires the Qt Quick Controls 2 module (see https://doc.qt.io/qt-6/qtquickcontrols-index.html).
 
+## Simple Dashboard Example
+
+The `simple-dashboard` example is an AI agent generated QML application to show how to create such a GUI using declarative way.
+
++++ agent mode programming
+prompt:
+Hi, I am planning to introduce Qt Quick with QML for GUI design for my colleagues (basically we are currently using the tractional QWidget based way), could be provide some interesting example that have attractive looking that I can showcase? (you know the QWidget is a little bit dumb w/o carefully tweaking)"
+
+response:
+Here’s an attractive example you can showcase: a simple animated dashboard with a circular progress indicator, a glowing button, and a modern card layout. This will demonstrate QML’s strengths in animation, gradients, and custom shapes.
++++
+
 ## Joystick Robot Simulator Example
 
 The `joystick-robot-sim` example demonstrates how to QML/C++ integration.
