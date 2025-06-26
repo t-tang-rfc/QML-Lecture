@@ -18,14 +18,14 @@ Item {
 	width: 270 // default, can be overridden
 
 	/* === Control Properties ===*/
-	property real itemSize: 200
-	property real blur: 40
-	property real radius: 40
-	property real spread: 0.0
+	property real objectSize: 200
+	property real objectBlur: 40
+	property real objectRadius: 40
+	property real objectSpread: 0.0
 	property real offsetX: -20
 	property real offsetY: -20
-	opacity: 1 // @todo
-	property bool showDebug: false 	
+	property real objectOpacity: 0.5
+	property bool showDebug: false
 
 	function updatePosition(posX, posY) {
 		let margin = 20;
@@ -54,13 +54,13 @@ Item {
 	}
 
 	function resetSettings() {
-		itemSize = 200;
-		blur = 40;
-		radius = 40;
-		spread = 0.0;
+		objectSize = 200;
+		objectBlur = 40;
+		objectRadius = 40;
+		objectSpread = 0.0;
 		offsetX = -20;
 		offsetY = -20;
-		opacity = 0.5;
+		objectOpacity = 0.5;
 		showDebug = false;
 		resetPosition();
 	}
@@ -102,34 +102,43 @@ Item {
 	}
 
 	/// Side Bar
+
+	// Background
+	Rectangle {
+		anchors.fill: scrollView
+		anchors.margins: -10
+		color: Qt.lighter(rootItem.mainColor, 0.15)
+		radius: 4
+	}
+
+	// An array of sliders
 	ScrollView {
 		id: scrollView
 		anchors.fill: parent
 		ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 		ScrollBar.vertical.interactive: false
 		clip: true
+
 		Column {
 			id: settingsArea
 			anchors.fill: parent
-			opacity: showAnimation
-			visible: opacity
 			spacing: 8
 
-			/// An array of sliders
 			SettingsComponentSlider {
 				id: sizeSlider
 				text: qsTr("Size") + ": " + value.toFixed()
 				sliderWidth: rootItem.sliderWidth
 				from: 100
 				to: 300
-				value: rootItem.itemSize				
+				value: rootItem.objectSize				
 				onMoved: {
-					rootItem.itemSize = value
-					rootItem.radius = Math.min(rootItem.radius, radiusSlider.to)
-					rootItem.spread = Math.min(rootItem.spread, spreadSlider.to)
-					rootItem.spread = Math.max(rootItem.spread, spreadSlider.from)
-					rootItem.blur = value * 0.2
-					resetPosition();
+					rootItem.objectSize = value
+					rootItem.objectRadius = Math.min(rootItem.objectRadius, radiusSlider.to)
+					rootItem.objectRadius = Math.max(rootItem.objectRadius, radiusSlider.from)
+					rootItem.objectSpread = Math.min(rootItem.objectSpread, spreadSlider.to)
+					rootItem.objectSpread = Math.max(rootItem.objectSpread, spreadSlider.from)
+					rootItem.objectBlur = value * 0.2
+					rootItem.resetPosition();
 				}				
 			}
 			SettingsComponentSlider {
@@ -137,10 +146,10 @@ Item {
 				text: qsTr("Radius") + ": " + value.toFixed()
 				sliderWidth: rootItem.sliderWidth
 				from: 0
-				to: rootItem.itemSize * 0.5
-				value: rootItem.radius				
+				to: rootItem.objectSize * 0.5
+				value: rootItem.objectRadius				
 				onMoved: {
-					rootItem.radius = value
+					rootItem.objectRadius = value
 				}
 			}
 			SettingsComponentSlider {
@@ -148,9 +157,9 @@ Item {
 				sliderWidth: rootItem.sliderWidth
 				from: 0
 				to: 100
-				value: rootItem.blur				
+				value: rootItem.objectBlur				
 				onMoved: {
-					rootItem.blur = value;
+					rootItem.objectBlur = value;
 				}
 			}
 			SettingsComponentSlider {
@@ -158,20 +167,20 @@ Item {
 				sliderWidth: rootItem.sliderWidth
 				from: 0.0
 				to: 1.0
-				value: rootItem.opacity
+				value: rootItem.objectOpacity
 				onMoved: {
-					rootItem.opacity = value;
+					rootItem.objectOpacity = value;
 				}
 			}
 			SettingsComponentSlider {
 				id: spreadSlider
 				sliderWidth: rootItem.sliderWidth
 				text: qsTr("Spread") + ": " + value.toFixed(2)				
-				from: -rootItem.itemSize * 0.1
-				to: rootItem.itemSize * 0.1
-				value: rootItem.spread
+				from: -rootItem.objectSize * 0.1
+				to: rootItem.objectSize * 0.1
+				value: rootItem.objectSpread
 				onMoved: {
-					rootItem.spread = value;
+					rootItem.objectSpread = value;
 				}
 			}
 
@@ -195,20 +204,21 @@ Item {
 				Item {
 					id: lightItem
 					Rectangle {
+						id: lightBackground
 						anchors.centerIn: parent
 						width: 10
 						height: width
 						radius: width / 2
 						color: "#e0e0e0"
-						// RectangularShadow {
-						// 	anchors.centerIn: parent
-						// 	width: parent.width * 3.0
-						// 	height: width
-						// 	radius: width / 2
-						// 	blur: width
-						// 	color: "#fff9f0"
-						// 	opacity: rootItem.opacity
-						// }
+						RectangularShadow {
+							anchors.centerIn: lightBackground
+							width: parent.width * 3.0
+							height: width
+							radius: width / 2
+							color: "#fff9f0"
+							opacity: rootItem.objectOpacity
+							blur: width
+						}
 					}
 				}
 				MouseArea {
@@ -216,21 +226,22 @@ Item {
 					anchors.fill: parent
 					preventStealing: true
 					Component.onCompleted: {
-						resetPosition()
+						rootItem.resetPosition()
 					}
 					onPositionChanged:
 						(mouse)=> {
-							updatePosition(mouse.x, mouse.y);
+							rootItem.updatePosition(mouse.x, mouse.y);
 						}
 					onPressed:
 						(mouse)=> {
-							updatePosition(mouse.x, mouse.y);
+							rootItem.updatePosition(mouse.x, mouse.y);
 						}
 				}
 			}
 		}
 	}
 
+	// Button group
 	Row {
 		anchors.horizontalCenter: scrollView.horizontalCenter
 		anchors.bottom: scrollView.bottom

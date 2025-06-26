@@ -1,5 +1,4 @@
-// Copyright (C) 2024 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
+// @brief: A Neu-morphic Style Slider
 
 import QtQuick
 import QtQuick.Controls.Basic
@@ -8,14 +7,13 @@ import QtQuick.Effects
 Column {
 	id: control
   
-	required property real sliderWidth
+	property real sliderWidth: 100
 	property color mainColor: "gray"
 
 	property alias text: textItem.text	
 	property alias from: slider.from
 	property alias to: slider.to
 	property alias value: slider.value
-	property alias stepSize: slider.stepSize
 
 	signal moved
 
@@ -23,9 +21,10 @@ Column {
 
 	Text {
 		id: textItem
-		anchors.horizontalCenter: parent.horizontalCenter
-		color: "#e0e0e0"
+		text: "Label"
 		font.pixelSize: 14
+		color: "#e0e0e0"
+		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
 	Slider {

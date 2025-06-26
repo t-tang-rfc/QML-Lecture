@@ -1,5 +1,4 @@
-// Copyright (C) 2024 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
+// @brief: A Neu-morphic Style Button
 
 import QtQuick
 import QtQuick.Controls.Basic
@@ -8,8 +7,8 @@ import QtQuick.Effects
 Button {
 	id: control
 
-	required property int buttonWidth
-	required property int buttonHeight
+	property real buttonWidth: 100
+	property real buttonHeight: 40
 	property color mainColor: "gray"
 	property real animatedPressed: control.down ? 1.0 : 0.0
 	property real animatedChecked: control.checked ? 1.0 : 0.0
