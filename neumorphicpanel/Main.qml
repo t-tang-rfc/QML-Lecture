@@ -13,8 +13,6 @@
  * But it is heavily modified to enhance syntax correctness and structure clearness.
 */
 
-/// @todo: Squash merge
-
 import QtQuick
 import QtQuick.Window
 import QtQuick.Effects
@@ -95,10 +93,10 @@ Window {
 				}
 				Image {
 					anchors.centerIn: parent
-					height: parent.height * 0.6
-					width: height
-					source: "images/qt_logo_white_rgb.png" // @todo
-					opacity: 0.1
+					width: parent.width * 0.6
+					height: width * 0.6
+					source: "images/logo.png" // image size: 500x300
+					opacity: 0.3
 				}
 			}
 
@@ -109,7 +107,7 @@ Window {
 				radius: settings.objectRadius
 				color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
 				opacity: settings.objectOpacity
-				spread: settings.objectSpread			
+				spread: settings.objectSpread
 				blur: settings.objectBlur
 				z: -1
 				material: null

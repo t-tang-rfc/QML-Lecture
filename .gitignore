@@ -3,3 +3,6 @@
 
 # Build files
 **/build/
+
+# Temporary files
+.DS_Store
