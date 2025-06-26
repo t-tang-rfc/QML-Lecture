@@ -52,13 +52,13 @@ Column {
 				height: parent.height
 				color: control.mainColor
 				radius: 2
-				RectangularShadow {
-					anchors.fill: parent
-					z: -1
-					radius: height / 2
-					blur: slider.hovered || slider.pressed ? 12 : 8
-					color: Qt.lighter(control.mainColor, 1.2)
-				}
+				// RectangularShadow {
+				// 	anchors.fill: parent
+				// 	z: -1
+				// 	radius: height / 2
+				// 	blur: slider.hovered || slider.pressed ? 12 : 8
+				// 	color: Qt.lighter(control.mainColor, 1.2)
+				// }
 			}
 		}
 
@@ -75,14 +75,14 @@ Column {
 				height: 8
 				radius: width / 2
 				color: Qt.lighter(control.mainColor, 1.5)
-				RectangularShadow {
-					anchors.fill: parent
-					anchors.margins: -2                    
-					radius: width / 2
-					blur: slider.hovered || slider.pressed ? 16 : 8
-					color: Qt.lighter(control.mainColor, 1.2)
-					z: -1
-				}
+				// RectangularShadow {
+				// 	anchors.fill: parent
+				// 	anchors.margins: -2                    
+				// 	radius: width / 2
+				// 	blur: slider.hovered || slider.pressed ? 16 : 8
+				// 	color: Qt.lighter(control.mainColor, 1.2)
+				// 	z: -1
+				// }
 			}
 		}
 	}

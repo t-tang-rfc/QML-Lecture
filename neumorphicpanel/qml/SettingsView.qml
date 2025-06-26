@@ -174,15 +174,15 @@ Item {
 						height: width
 						radius: width / 2
 						color: "#e0e0e0"
-						RectangularShadow {
-							anchors.centerIn: parent
-							width: parent.width * 3.0
-							height: width
-							radius: width / 2
-							blur: width
-							color: "#fff9f0"
-							opacity: settings.opacity
-						}
+						// RectangularShadow {
+						// 	anchors.centerIn: parent
+						// 	width: parent.width * 3.0
+						// 	height: width
+						// 	radius: width / 2
+						// 	blur: width
+						// 	color: "#fff9f0"
+						// 	opacity: settings.opacity
+						// }
 					}
 				}
 				MouseArea {

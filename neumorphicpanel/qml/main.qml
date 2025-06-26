@@ -1,6 +1,8 @@
 // Copyright (C) 2024 The Qt Company Ltd.
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
+/// @todo: Squash merge
+
 import QtQuick
 import QtQuick.Window
 import QtQuick.Effects
@@ -90,52 +92,52 @@ Rectangle {
 			}
 		}
 
-		RectangularShadow {
-			anchors.fill: sourceItem
-			offset.x: settings.offsetX
-			offset.y: settings.offsetY
-			radius: settings.radius
-			blur: settings.blur
-			spread: settings.spread
-			opacity: settings.opacity
-			color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
-			z: -1
-			material: null
-			Rectangle {
-				z: 1
-				x: parent.material.x - 1
-				y: parent.material.y - 1
-				width: parent.material.width + 2
-				height: parent.material.height + 2
-				color: "transparent"
-				border.width: 1
-				border.color: "#ffffff"
-				visible: settings.showDebug
-			}
-		}
+		// RectangularShadow {
+		// 	anchors.fill: sourceItem
+		// 	offset.x: settings.offsetX
+		// 	offset.y: settings.offsetY
+		// 	radius: settings.radius
+		// 	blur: settings.blur
+		// 	spread: settings.spread
+		// 	opacity: settings.opacity
+		// 	color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
+		// 	z: -1
+		// 	material: null
+		// 	Rectangle {
+		// 		z: 1
+		// 		x: parent.material.x - 1
+		// 		y: parent.material.y - 1
+		// 		width: parent.material.width + 2
+		// 		height: parent.material.height + 2
+		// 		color: "transparent"
+		// 		border.width: 1
+		// 		border.color: "#ffffff"
+		// 		visible: settings.showDebug
+		// 	}
+		// }
 
-		RectangularShadow {
-			anchors.fill: sourceItem
-			offset.x: -settings.offsetX
-			offset.y: -settings.offsetY
-			radius: settings.radius
-			blur: settings.blur
-			spread: settings.spread
-			opacity: settings.opacity
-			color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
-			z: -2
-			material: null // Use the default material
-			Rectangle {
-				z: 1
-				x: parent.material.x - 1
-				y: parent.material.y - 1
-				width: parent.material.width + 2
-				height: parent.material.height + 2
-				color: "transparent"
-				border.width: 1
-				border.color: "#000000"
-				visible: settings.showDebug
-			}
-		}
+		// RectangularShadow {
+		// 	anchors.fill: sourceItem
+		// 	offset.x: -settings.offsetX
+		// 	offset.y: -settings.offsetY
+		// 	radius: settings.radius
+		// 	blur: settings.blur
+		// 	spread: settings.spread
+		// 	opacity: settings.opacity
+		// 	color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
+		// 	z: -2
+		// 	material: null // Use the default material
+		// 	Rectangle {
+		// 		z: 1
+		// 		x: parent.material.x - 1
+		// 		y: parent.material.y - 1
+		// 		width: parent.material.width + 2
+		// 		height: parent.material.height + 2
+		// 		color: "transparent"
+		// 		border.width: 1
+		// 		border.color: "#000000"
+		// 		visible: settings.showDebug
+		// 	}
+		// }
 	}
 }
