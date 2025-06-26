@@ -142,9 +142,9 @@ Item {
 				sliderWidth: rootItem.sliderWidth
 				from: 0.0
 				to: 1.0
-				value: settings.opacity
+				value: settings.objectOpacity
 				onMoved: {
-					settings.opacity = value;
+					settings.objectOpacity = value;
 				}
 			}
 			SettingsComponentSlider {
@@ -191,7 +191,7 @@ Item {
 						// 	radius: width / 2
 						// 	blur: width
 						// 	color: "#fff9f0"
-						// 	opacity: settings.opacity
+						// 	opacity: settings.objectOpacity
 						// }
 					}
 				}

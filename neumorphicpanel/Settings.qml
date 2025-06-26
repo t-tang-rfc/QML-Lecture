@@ -12,7 +12,7 @@ QtObject {
     property real spread: 0.0
     property real offsetX: -20
     property real offsetY: -20
-    property real opacity: 0.5
+    property real objectOpacity: 0.5
     property bool showDebug: false    
 
     function resetSettings() {
@@ -22,7 +22,7 @@ QtObject {
         spread = 0.0;
         offsetX = -20;
         offsetY = -20;
-        opacity = 0.5;
+        objectOpacity = 0.5;
         showDebug = false;
         settingsView.resetPosition(); // @todo: Fix this
     }
