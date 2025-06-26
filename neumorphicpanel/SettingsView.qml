@@ -213,12 +213,16 @@ Item {
 			id: debugButton
 			text: "DEBUG"
 			checkable: true
+			buttonWidth: 100
+			buttonHeight: 40
 			checked: settings.showDebug
 			onCheckedChanged: settings.showDebug = checked
 		}
 		SettingsComponentButton {
 			id: resetButton
 			text: "RESET"
+			buttonWidth: 100
+			buttonHeight: 40			
 			onClicked: settings.resetSettings()
 		}
 	}

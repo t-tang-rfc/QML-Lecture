@@ -8,13 +8,15 @@ import QtQuick.Controls.Basic
 Button {
 	id: control
 
+	required property int buttonWidth
+	required property int buttonHeight
 	property color mainColor: "gray"
 	property real animatedPressed: control.down ? 1.0 : 0.0
 	property real animatedChecked: control.checked ? 1.0 : 0.0
 
 	background: Rectangle {
-		implicitWidth: 100
-		implicitHeight: 40
+		implicitWidth: control.buttonWidth
+		implicitHeight: control.buttonHeight
 		opacity: enabled ? 1 : 0.3
 		radius: height * 0.5
 		color: Qt.lighter(control.mainColor, 0.3)
