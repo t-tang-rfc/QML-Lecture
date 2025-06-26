@@ -78,8 +78,6 @@ Item {
 	// Background
 	Rectangle {
 		anchors.fill: scrollView
-		opacity: showAnimation ? 1 : 0
-		visible: opacity
 		anchors.margins: -10
 		color: Qt.lighter(rootItem.mainColor, 0.15)
 		radius: 4
@@ -95,8 +93,6 @@ Item {
 		Column {
 			id: settingsArea
 			anchors.fill: parent
-			opacity: showAnimation
-			visible: opacity
 			spacing: 8
 
 			/// An array of sliders

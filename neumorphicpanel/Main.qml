@@ -45,7 +45,7 @@ Rectangle {
 		id: settings
 	}
 
-	// Primary (left) Side Bar
+	/// Primary (left) Side Bar
 	SettingsView {
 		id: settingsView
 		visible: true
@@ -57,6 +57,7 @@ Rectangle {
 		x: -(width + 30) * (1 - this.showAnimation) + 20 // Slides in/out effect
 	}
 
+	/// Main Canvas Area
 	Item {
 		id: mainArea
 		anchors.left: settingsView.right
