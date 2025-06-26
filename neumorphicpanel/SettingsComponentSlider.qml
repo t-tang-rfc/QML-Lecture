@@ -40,6 +40,7 @@ Column {
 		}
 
 		background: Rectangle {
+			id: backgroundRect
 			x: slider.leftPadding + slider.handlePadding
 			y: slider.topPadding + slider.availableHeight / 2 - height / 2
 			implicitWidth: 200
@@ -49,16 +50,17 @@ Column {
 			radius: 2
 			color: Qt.lighter(control.mainColor, 0.3)
 			Rectangle {
+				id: progressRect
 				width: slider.visualPosition * parent.width
 				height: parent.height
 				color: control.mainColor
 				radius: 2
 				RectangularShadow {
-					anchors.fill: parent
-					z: -1
+					anchors.fill: progressRect
 					radius: height / 2
+					color: Qt.lighter(control.mainColor, 1.2)					
 					blur: slider.hovered || slider.pressed ? 12 : 8
-					color: Qt.lighter(control.mainColor, 1.2)
+					z: -1
 				}
 			}
 		}
@@ -77,11 +79,11 @@ Column {
 				radius: width / 2
 				color: Qt.lighter(control.mainColor, 1.5)
 				RectangularShadow {
-					anchors.fill: parent
+					anchors.fill: handleVisualItem
 					anchors.margins: -2                    
 					radius: width / 2
-					blur: slider.hovered || slider.pressed ? 16 : 8
 					color: Qt.lighter(control.mainColor, 1.2)
+					blur: slider.hovered || slider.pressed ? 16 : 8
 					z: -1
 				}
 			}

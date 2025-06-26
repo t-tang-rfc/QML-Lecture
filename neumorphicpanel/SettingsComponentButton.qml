@@ -15,29 +15,29 @@ Button {
 	property real animatedChecked: control.checked ? 1.0 : 0.0
 
 	background: Rectangle {
+		id: backgroundRect
 		implicitWidth: control.buttonWidth
 		implicitHeight: control.buttonHeight
 		opacity: enabled ? 1 : 0.3
 		radius: height * 0.5
 		color: Qt.lighter(control.mainColor, 0.3)
 		border.width: 1
-		border.color: Qt.lighter(control.mainColor, 0.1)
 		RectangularShadow {
 			// Inner shadow
-			anchors.fill: parent
+			anchors.fill: backgroundRect
 			anchors.margins: blur
 			radius: height * 0.4
-			blur: height * 0.4
 			color: Qt.lighter(control.mainColor, 0.4 + control.animatedPressed * 0.2 + control.animatedChecked * 0.6)
+			blur: height * 0.4			
 		}
 		RectangularShadow {
 			// Glow
-			anchors.fill: parent
-			z: -1
+			anchors.fill: backgroundRect
 			radius: height * 0.4
-			blur: 60
-			opacity: 0.1 + control.animatedPressed * 0.4
 			color: Qt.lighter(control.mainColor, 1.2)
+			opacity: 0.1 + control.animatedPressed * 0.4
+			blur: 60
+			z: -1
 		}
 	}
 
