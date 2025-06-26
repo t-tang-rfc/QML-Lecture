@@ -14,7 +14,6 @@ Item {
 	property real showAnimation: show ? 1 : 0
 
 	width: 270 // default, can be overridden
-	x: -(width + 30) * (1 - showAnimation) + 20
 
 	function resetPosition() {
 		let lw = lightMouseArea.width

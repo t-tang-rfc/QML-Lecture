@@ -53,6 +53,7 @@ Rectangle {
 		anchors.bottom: parent.bottom
 		anchors.margins: 20
 		visible: settings.showSettingsView
+		x: -(width + 30) * (1 - this.showAnimation) + 20 // Slides in/out effect
 	}
 
 	Item {
