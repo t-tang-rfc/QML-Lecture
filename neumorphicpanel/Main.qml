@@ -48,11 +48,12 @@ Rectangle {
 	// Primary (left) Side Bar
 	SettingsView {
 		id: settingsView
+		visible: true
 		width: 270
 		anchors.top: parent.top
 		anchors.bottom: parent.bottom
-		anchors.margins: 20
-		visible: settings.showSettingsView
+		anchors.topMargin: 20
+		anchors.bottomMargin: 20
 		x: -(width + 30) * (1 - this.showAnimation) + 20 // Slides in/out effect
 	}
 
