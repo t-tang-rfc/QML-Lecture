@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
 import QtQuick
-import QtQuick.Effects
 import QtQuick.Controls.Basic
+import QtQuick.Effects
 
 Column {
 	id: control
@@ -53,13 +53,13 @@ Column {
 				height: parent.height
 				color: control.mainColor
 				radius: 2
-				// RectangularShadow {
-				// 	anchors.fill: parent
-				// 	z: -1
-				// 	radius: height / 2
-				// 	blur: slider.hovered || slider.pressed ? 12 : 8
-				// 	color: Qt.lighter(control.mainColor, 1.2)
-				// }
+				RectangularShadow {
+					anchors.fill: parent
+					z: -1
+					radius: height / 2
+					blur: slider.hovered || slider.pressed ? 12 : 8
+					color: Qt.lighter(control.mainColor, 1.2)
+				}
 			}
 		}
 
@@ -76,14 +76,14 @@ Column {
 				height: 8
 				radius: width / 2
 				color: Qt.lighter(control.mainColor, 1.5)
-				// RectangularShadow {
-				// 	anchors.fill: parent
-				// 	anchors.margins: -2                    
-				// 	radius: width / 2
-				// 	blur: slider.hovered || slider.pressed ? 16 : 8
-				// 	color: Qt.lighter(control.mainColor, 1.2)
-				// 	z: -1
-				// }
+				RectangularShadow {
+					anchors.fill: parent
+					anchors.margins: -2                    
+					radius: width / 2
+					blur: slider.hovered || slider.pressed ? 16 : 8
+					color: Qt.lighter(control.mainColor, 1.2)
+					z: -1
+				}
 			}
 		}
 	}

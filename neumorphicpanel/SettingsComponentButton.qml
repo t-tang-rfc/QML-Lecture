@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
 import QtQuick
-import QtQuick.Effects
 import QtQuick.Controls.Basic
+import QtQuick.Effects
 
 Button {
 	id: control
@@ -22,23 +22,23 @@ Button {
 		color: Qt.lighter(control.mainColor, 0.3)
 		border.width: 1
 		border.color: Qt.lighter(control.mainColor, 0.1)
-		// RectangularShadow {
-		// 	// Inner shadow
-		// 	anchors.fill: parent
-		// 	anchors.margins: blur
-		// 	radius: height * 0.4
-		// 	blur: height * 0.4
-		// 	color: Qt.lighter(control.mainColor, 0.4 + control.animatedPressed * 0.2 + control.animatedChecked * 0.6)
-		// }
-		// RectangularShadow {
-		// 	// Glow
-		// 	anchors.fill: parent
-		// 	z: -1
-		// 	radius: height * 0.4
-		// 	blur: 60
-		// 	opacity: 0.1 + control.animatedPressed * 0.4
-		// 	color: Qt.lighter(control.mainColor, 1.2)
-		// }
+		RectangularShadow {
+			// Inner shadow
+			anchors.fill: parent
+			anchors.margins: blur
+			radius: height * 0.4
+			blur: height * 0.4
+			color: Qt.lighter(control.mainColor, 0.4 + control.animatedPressed * 0.2 + control.animatedChecked * 0.6)
+		}
+		RectangularShadow {
+			// Glow
+			anchors.fill: parent
+			z: -1
+			radius: height * 0.4
+			blur: 60
+			opacity: 0.1 + control.animatedPressed * 0.4
+			color: Qt.lighter(control.mainColor, 1.2)
+		}
 	}
 
 	contentItem: Text {

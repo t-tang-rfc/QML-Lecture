@@ -91,52 +91,52 @@ Rectangle {
 			}
 		}
 
-		// RectangularShadow {
-		// 	anchors.fill: sourceItem
-		// 	offset.x: settings.offsetX
-		// 	offset.y: settings.offsetY
-		// 	radius: settings.radius
-		// 	blur: settings.blur
-		// 	spread: settings.spread
-		// 	opacity: settings.objectOpacity
-		// 	color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
-		// 	z: -1
-		// 	material: null
-		// 	Rectangle {
-		// 		z: 1
-		// 		x: parent.material.x - 1
-		// 		y: parent.material.y - 1
-		// 		width: parent.material.width + 2
-		// 		height: parent.material.height + 2
-		// 		color: "transparent"
-		// 		border.width: 1
-		// 		border.color: "#ffffff"
-		// 		visible: settings.showDebug
-		// 	}
-		// }
+		RectangularShadow {
+			anchors.fill: sourceItem
+			offset.x: settings.offsetX
+			offset.y: settings.offsetY
+			radius: settings.radius
+			blur: settings.blur
+			spread: settings.spread
+			opacity: settings.objectOpacity
+			color: Qt.lighter(mainCanvas.mainColor, 1.5) // Bright shadow
+			z: -1
+			material: null
+			Rectangle {
+				z: 1
+				x: parent.material.x - 1
+				y: parent.material.y - 1
+				width: parent.material.width + 2
+				height: parent.material.height + 2
+				color: "transparent"
+				border.width: 1
+				border.color: "#ffffff"
+				visible: settings.showDebug
+			}
+		}
 
-		// RectangularShadow {
-		// 	anchors.fill: sourceItem
-		// 	offset.x: -settings.offsetX
-		// 	offset.y: -settings.offsetY
-		// 	radius: settings.radius
-		// 	blur: settings.blur
-		// 	spread: settings.spread
-		// 	opacity: settings.objectOpacity
-		// 	color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
-		// 	z: -2
-		// 	material: null // Use the default material
-		// 	Rectangle {
-		// 		z: 1
-		// 		x: parent.material.x - 1
-		// 		y: parent.material.y - 1
-		// 		width: parent.material.width + 2
-		// 		height: parent.material.height + 2
-		// 		color: "transparent"
-		// 		border.width: 1
-		// 		border.color: "#000000"
-		// 		visible: settings.showDebug
-		// 	}
-		// }
+		RectangularShadow {
+			anchors.fill: sourceItem
+			offset.x: -settings.offsetX
+			offset.y: -settings.offsetY
+			radius: settings.radius
+			blur: settings.blur
+			spread: settings.spread
+			opacity: settings.objectOpacity
+			color: Qt.darker(mainCanvas.mainColor, 2.0) // Dark shadow
+			z: -2
+			material: null // Use the default material
+			Rectangle {
+				z: 1
+				x: parent.material.x - 1
+				y: parent.material.y - 1
+				width: parent.material.width + 2
+				height: parent.material.height + 2
+				color: "transparent"
+				border.width: 1
+				border.color: "#000000"
+				visible: settings.showDebug
+			}
+		}
 	}
 }

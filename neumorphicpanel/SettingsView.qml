@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
 import QtQuick
-import QtQuick.Effects
 import QtQuick.Controls.Basic
+import QtQuick.Effects
 
 Item {
 	id: rootItem
