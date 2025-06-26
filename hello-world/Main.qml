@@ -2,6 +2,7 @@
 // @see: [The official Qt tutorial](https://doc.qt.io/qt-6/qml-tutorial1.html)
 
 import QtQuick
+import QtQuick.Window
 
 Window {
 	id: mainWindow // id *attribute* is used to reference this object in this QML file
