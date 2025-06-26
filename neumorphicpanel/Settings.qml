@@ -7,8 +7,6 @@ QtObject {
     id: rootItem
 
     property bool showSettingsView: true
-    property real settingsViewWidth: 150 + 150 * dp
-    property bool showDebug: false
 
     property real itemSize: 200
     property real blur: 40
@@ -17,16 +15,17 @@ QtObject {
     property real offsetX: -20
     property real offsetY: -20
     property real opacity: 0.5
+    property bool showDebug: false    
 
     function resetSettings() {
-        settings.itemSize = defaultSettings.itemSize;
-        settings.blur = defaultSettings.blur;
-        settings.radius = defaultSettings.radius;
-        settings.spread = defaultSettings.spread;
-        settings.offsetX = defaultSettings.offsetX;
-        settings.offsetY = defaultSettings.offsetY;
-        settings.opacity = defaultSettings.opacity;
-        settings.showDebug = defaultSettings.showDebug;
-        settingsView.resetPosition();
+        itemSize = 200;
+        blur = 40;
+        radius = 40;
+        spread = 0.0;
+        offsetX = -20;
+        offsetY = -20;
+        opacity = 0.5;
+        showDebug = false;
+        settingsView.resetPosition(); // @todo: Fix this
     }
 }

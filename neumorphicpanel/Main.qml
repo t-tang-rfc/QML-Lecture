@@ -45,13 +45,10 @@ Rectangle {
 		id: settings
 	}
 
-	Settings {
-		id: defaultSettings
-	}
-
 	// Primary (left) Side Bar
 	SettingsView {
 		id: settingsView
+		width: 270
 		anchors.top: parent.top
 		anchors.bottom: parent.bottom
 		anchors.margins: 20

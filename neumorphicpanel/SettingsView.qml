@@ -10,10 +10,10 @@ Item {
 
 	property bool show: true
 	property color mainColor: "gray"
-	property real showAnimation: show ? 1 : 0
 	property int sliderWidth: 270
+	property real showAnimation: show ? 1 : 0
 
-	width: settings.settingsViewWidth
+	width: 270 // default, can be overridden
 	x: -(width + 30) * (1 - showAnimation) + 20
 
 	function resetPosition() {
@@ -98,6 +98,8 @@ Item {
 			opacity: showAnimation
 			visible: opacity
 			spacing: 10 * dp
+
+			/// An array of sliders
 			SettingsComponentSlider {
 				id: sizeSlider
 				text: qsTr("Size") + ": " + value.toFixed()
@@ -157,6 +159,7 @@ Item {
 				}
 			}
 
+			/// A 2D locator
 			Text {
 				anchors.horizontalCenter: parent.horizontalCenter
 				color: "#e0e0e0"
@@ -167,7 +170,7 @@ Item {
 			Rectangle {
 				id: lightArea
 				anchors.horizontalCenter: parent.horizontalCenter
-				width: settings.settingsViewWidth * 0.6
+				width: rootItem.width * 0.6
 				height: width
 				radius: 5
 				color: Qt.lighter(mainCanvas.mainColor, 0.5)
