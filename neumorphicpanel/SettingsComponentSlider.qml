@@ -8,11 +8,13 @@ import QtQuick.Controls.Basic
 Column {
 	id: control
   
+	required property int sliderWidth
 	property color mainColor: "gray"
-	property alias text: textItem.text
-	property alias value: slider.value
+
+	property alias text: textItem.text	
 	property alias from: slider.from
 	property alias to: slider.to
+	property alias value: slider.value
 	property alias stepSize: slider.stepSize
 
 	signal moved
@@ -28,12 +30,11 @@ Column {
 
 	Slider {
 		id: slider
-		property real sliderWidth: settings.settingsViewWidth // @todo
 		property real handlePadding: (handleItem.width - handleVisualItem.width) * 0.5
-		width: sliderWidth
-		value: 50
+		width: control.sliderWidth
 		from: 0
 		to: 800
+		value: 50
 		onMoved: {
 			control.moved();
 		}

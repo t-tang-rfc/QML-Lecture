@@ -11,6 +11,7 @@ Item {
 	property bool show: true
 	property color mainColor: "gray"
 	property real showAnimation: show ? 1 : 0
+	property int sliderWidth: 270
 
 	width: settings.settingsViewWidth
 	x: -(width + 30) * (1 - showAnimation) + 20
@@ -100,9 +101,10 @@ Item {
 			SettingsComponentSlider {
 				id: sizeSlider
 				text: qsTr("Size") + ": " + value.toFixed()
-				value: settings.itemSize
+				sliderWidth: rootItem.sliderWidth
 				from: 100
 				to: 300
+				value: settings.itemSize				
 				onMoved: {
 					settings.itemSize = value
 					settings.radius = Math.min(settings.radius, radiusSlider.to)
@@ -110,46 +112,51 @@ Item {
 					settings.spread = Math.max(settings.spread, spreadSlider.from)
 					settings.blur = value * 0.2
 					resetPosition();
-				}
+				}				
 			}
 			SettingsComponentSlider {
 				id: radiusSlider
 				text: qsTr("Radius") + ": " + value.toFixed()
-				value: settings.radius
+				sliderWidth: rootItem.sliderWidth
 				from: 0
 				to: settings.itemSize * 0.5
+				value: settings.radius				
 				onMoved: {
 					settings.radius = value
 				}
 			}
 			SettingsComponentSlider {
 				text: qsTr("Blur") + ": " + value.toFixed()
-				value: settings.blur
+				sliderWidth: rootItem.sliderWidth
 				from: 0
 				to: 100
+				value: settings.blur				
 				onMoved: {
 					settings.blur = value;
 				}
 			}
 			SettingsComponentSlider {
 				text: qsTr("Opacity") + ": " + value.toFixed(2)
-				value: settings.opacity
+				sliderWidth: rootItem.sliderWidth
 				from: 0.0
 				to: 1.0
+				value: settings.opacity
 				onMoved: {
 					settings.opacity = value;
 				}
 			}
 			SettingsComponentSlider {
 				id: spreadSlider
-				text: qsTr("Spread") + ": " + value.toFixed(2)
-				value: settings.spread
+				sliderWidth: rootItem.sliderWidth
+				text: qsTr("Spread") + ": " + value.toFixed(2)				
 				from: -settings.itemSize * 0.1
 				to: settings.itemSize * 0.1
+				value: settings.spread
 				onMoved: {
 					settings.spread = value;
 				}
 			}
+
 			Text {
 				anchors.horizontalCenter: parent.horizontalCenter
 				color: "#e0e0e0"
